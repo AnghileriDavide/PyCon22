@@ -1,0 +1,44 @@
+[tool.poetry]
+name = "genetic_algorithm"
+version = "0.1.0"
+description = "The genetic algorithm to solve the N-queens problem for PyCon Italia 2022."
+authors = ["Davide Anghileri <davide.anghileri@prima.it>"]
+
+[[tool.poetry.source]]
+name = 'PyPI'
+url = 'https://pypi.org/simple/'
+default = true
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.dev-dependencies]
+black = "^22.3.0"
+isort = "^5.10.1"
+mypy = "^0.950"
+pylint = "^2.13.0"
+
+[tool.isort]
+profile = "black"
+
+[tool.mypy]
+strict = true
+pretty = true
+show_error_codes = true
+show_error_context = true
+implicit_reexport = true
+namespace_packages = true
+
+[tool.pylint."MESSAGES CONTROL"]
+persistent = "no"
+max-line-length = 120
+max-args = 7
+disable = [
+    "missing-class-docstring",
+    "missing-function-docstring",
+    "missing-module-docstring",
+]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

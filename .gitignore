@@ -1,0 +1,15 @@
+__pycache__
+.ipynb_checkpoints
+
+# IDE
+/.idea/
+.vscode
+
+# PyEnv
+/.python-version
+
+# mypy
+/.mypy_cache
+
+# Backup files
+backup_*
