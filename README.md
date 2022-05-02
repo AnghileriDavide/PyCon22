@@ -1,7 +1,11 @@
 # PyCon22
+### Solving the N-queens problem with genetic algorithms
 Companion project for the talk: Genetic Algorithm from Scratch in Python @ PyCon Italia 2022.
 
-![alt text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+<div style="text-align:center">
+<img src="https://github.com/AnghileriDavide/PyCon22/blob/e6a96623097c9cd4869703811fcf73087ebc35fd/img/chessboard.png?raw=true" 
+alt="8x8 Chessboard with 8 Queens" width="200">
+</div>
 
 ## How to setup
 
@@ -28,3 +32,11 @@ Optional arguments:
 |      --mutation-prob      |   0.3   |       mutation probability       |
 |         --n-iter          |  1000   |   maximum number of iterations   |
 |        --n-elites         |   10    |         number of elites         |
+
+## Contact
+
+You can reach me at davide.anghileri@prima.it
+
+## License
+
+[![Licence](https://github.com/AnghileriDavide/PyCon22/blob/73cc1c9242059bf5343d8e9509849a80e91cd22b/img/mit-license.png?raw=true)](./LICENSE)
