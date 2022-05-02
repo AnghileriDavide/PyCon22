@@ -169,20 +169,3 @@ class GeneticAlgorithm:
             population = next_generation
 
         return sorted(population, key=self.fitness)[0]
-
-
-# Instantiate the GA to solve the N-Queens problem
-genetic_algorithm = GeneticAlgorithm(
-    fitness=fitness_func,
-    selection=roulette_selection,
-    crossover=ordered_crossover,
-    mutation=swap_mutation,
-)
-
-# Run the evolution
-best_solution = genetic_algorithm.run_evolution(
-    pop_size=100, individual_length=15, fitness_limit=0
-)
-
-# View the best solution found
-view_chessboard(best_solution)
