@@ -94,13 +94,13 @@ def ordered_crossover(parents: IndividualPair) -> IndividualPair:
 
     parent_a, parent_b = parents
     split_index = random.randint(1, len(parent_a) - 1)
-    offspring_a = parent_a[:split_index] + list(
+    offspring_x = parent_a[:split_index] + list(
         filter(lambda pos: pos not in parent_a[:split_index], parent_b)
     )
-    offspring_b = parent_b[:split_index] + list(
+    offspring_y = parent_b[:split_index] + list(
         filter(lambda pos: pos not in parent_b[:split_index], parent_a)
     )
-    return offspring_a, offspring_b
+    return offspring_x, offspring_y
 
 
 def swap_mutation(individual: Individual, probability: float) -> Individual:
@@ -126,11 +126,36 @@ class GeneticAlgorithm:
     crossover: CrossoverFunc = ordered_crossover
     mutation: MutationFunc = swap_mutation
 
+    def compute_next_generation(
+        self,
+        population: list[Individual],
+        mutation_prob: float = 0.3,
+        n_elites: int = 10,
+    ):
+        """
+        Given a population compute the next generation by applying selection, crossover and mutation to
+        all the individuals. The new generation will have the same size of the given population.
+
+        :param population: the starting population.
+        :param mutation_prob: the probability at which mutation occurs.
+        :param n_elites: number of elitism individuals to keep at each generation.
+        :return: the best individual (solution) found.
+        """
+
+        next_generation = population[:n_elites]
+        for _ in range(int((len(population) - n_elites) / 2)):
+            parents = self.selection(population, self.fitness)
+            offspring = self.crossover(parents)
+            next_generation += map(
+                partial(self.mutation, probability=mutation_prob), offspring
+            )
+        return next_generation
+
     def run_evolution(
         self,
         pop_size: int,
         individual_length: int,
-        fitness_limit: int,
+        fitness_limit: int = 0,
         mutation_prob: float = 0.3,
         n_iter: int = 1000,
         n_elites: int = 10,
@@ -151,21 +176,11 @@ class GeneticAlgorithm:
 
         for i in range(n_iter):
             population = sorted(population, key=self.fitness)
-
             print(f"Generation {i} - Best fitness {self.fitness(population[0])}")
-
             if self.fitness(population[0]) <= fitness_limit:
                 break
-
-            next_generation = population[:n_elites]
-
-            for _ in range(int((len(population) - n_elites) / 2)):
-                parents = self.selection(population, self.fitness)
-                offspring = self.crossover(parents)
-                next_generation += map(
-                    partial(self.mutation, probability=mutation_prob), offspring
-                )
-
-            population = next_generation
+            population = self.compute_next_generation(
+                population, mutation_prob, n_elites
+            )
 
         return sorted(population, key=self.fitness)[0]
