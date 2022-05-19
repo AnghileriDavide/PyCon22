@@ -128,10 +128,10 @@ class GeneticAlgorithm:
 
     def compute_next_generation(
         self,
-        population: list[Individual],
+        population: Population,
         mutation_prob: float = 0.3,
         n_elites: int = 10,
-    ):
+    ) -> Population:
         """
         Given a population compute the next generation by applying selection, crossover and mutation to
         all the individuals. The new generation will have the same size of the given population.
@@ -139,7 +139,7 @@ class GeneticAlgorithm:
         :param population: the starting population.
         :param mutation_prob: the probability at which mutation occurs.
         :param n_elites: number of elitism individuals to keep at each generation.
-        :return: the best individual (solution) found.
+        :return: the next generation population.
         """
 
         next_generation = population[:n_elites]
