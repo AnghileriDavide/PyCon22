@@ -11,12 +11,15 @@ default = true
 
 [tool.poetry.dependencies]
 python = "^3.10"
+cairosvg = "^2.5.2"
+matplotlib = "^3.5.2"
 
 [tool.poetry.dev-dependencies]
 black = "^22.3.0"
 isort = "^5.10.1"
 mypy = "^0.950"
 pylint = "^2.13.0"
+chess = "^1.9.0"
 
 [tool.isort]
 profile = "black"

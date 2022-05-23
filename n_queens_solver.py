@@ -1,12 +1,13 @@
+import argparse
+
 from genetic_algorithm.algorithm import (
     GeneticAlgorithm,
     fitness_func,
-    roulette_selection,
     ordered_crossover,
+    roulette_selection,
     swap_mutation,
 )
 from genetic_algorithm.utils import view_chessboard
-import argparse
 
 # Instantiate the GA to solve the N-Queens problem
 genetic_algorithm = GeneticAlgorithm(
@@ -26,7 +27,7 @@ if __name__ == "__main__":
         "-p", "--pop-size", help="Population size", type=int, default=100
     )
     parser.add_argument(
-        "-n", "--individual-length", help="Chessboard dimension", type=int, default=15
+        "-n", "--individual-length", help="Chessboard dimension", type=int, default=8
     )
     parser.add_argument(
         "-l",

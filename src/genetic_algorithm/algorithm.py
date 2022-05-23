@@ -3,8 +3,6 @@ import random
 from functools import partial
 from typing import Callable, TypeAlias
 
-from genetic_algorithm.utils import view_chessboard
-
 # Set the seed for reproducibility
 random.seed(123)
 
