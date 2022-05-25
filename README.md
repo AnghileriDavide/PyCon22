@@ -3,7 +3,7 @@
 Companion project for the talk: Genetic Algorithm from Scratch in Python @ PyCon Italia 2022.
 
 <div style="text-align:center">
-<img src="https://github.com/AnghileriDavide/PyCon22/blob/e6a96623097c9cd4869703811fcf73087ebc35fd/img/chessboard.png?raw=true" 
+<img src="https://github.com/AnghileriDavide/PyCon22/blob/master/img/chessboard_53172864.png?raw=true" 
 alt="8x8 Chessboard with 8 Queens" width="200">
 </div>
 
@@ -19,7 +19,7 @@ poetry install
 
 then run the following command to execute the genetic algorithm solving the N-queens problem:
 ```bash
-python3 -m n_queens_solver.py
+python3 -m queens_ambit.py
 ```
 
 Optional arguments:

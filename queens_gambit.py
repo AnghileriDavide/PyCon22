@@ -10,7 +10,7 @@ from genetic_algorithm.algorithm import (
 from genetic_algorithm.utils import view_chessboard
 
 # Instantiate the GA to solve the N-Queens problem
-genetic_algorithm = GeneticAlgorithm(
+queens_ambit = GeneticAlgorithm(
     fitness=fitness_func,
     selection=roulette_selection,
     crossover=ordered_crossover,
@@ -48,7 +48,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     # Run the evolution
-    best_solution = genetic_algorithm.run_evolution(
+    best_solution = queens_ambit.run_evolution(
         pop_size=args.pop_size,
         individual_length=args.individual_length,
         fitness_limit=args.fitness_limit,
