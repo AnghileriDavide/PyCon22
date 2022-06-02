@@ -13,6 +13,8 @@ default = true
 python = "^3.10"
 cairosvg = "^2.5.2"
 matplotlib = "^3.5.2"
+jupyter = "^1.0.0"
+ipykernel = "^6.13.0"
 
 [tool.poetry.dev-dependencies]
 black = "^22.3.0"
